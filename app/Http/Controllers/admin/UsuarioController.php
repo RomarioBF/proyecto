@@ -1,0 +1,74 @@
+<?php
+
+namespace App\Http\Controllers\admin;
+
+use App\Models\User;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB; 
+
+class UsuarioController extends Controller
+{
+    public function index(Request $request)
+    {
+        $texto=trim($request->get('texto'));
+        $user = User::where('name','LIKE', '%'.$texto. '%')
+        ->orWhere('id','LIKE','%'.$texto. '%')->get()
+        ->sortBy('id');
+        return view ('usuario.index',['user'=>$user, 'texto'=>$texto]);
+
+    }
+
+
+
+    public function create()
+    {
+        
+        return view('usuario.create');
+    }
+
+
+
+    public function store(Request $request)
+    {
+      $user = new User;
+        $user->cedula=$request->input('cedula');
+        $user->name=$request->input('name');
+        $user->email=$request->input('email');
+        $user->password=$request->input('password')??'11111';
+        $user->save();
+        return view ('usuario.create');
+
+    }
+
+    public function edit($id)
+    {
+        $user=User::findOrFail($id);
+        return view ('usuario.edit',['user'=>$user]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $user=User::findOrFail($id);
+        $user->cedula=$request->input('cedula');
+        $user->name=$request->input('name');
+        $user->email=$request->input('email');
+        $user->password=$request->input('password')??'11111';
+        $user->save();
+
+        return redirect()->route('usuario.index');
+
+    }
+
+
+    public function destroy(User $user)
+    {
+        
+        $user->delete();
+         return redirect()->route('usuario.index');
+    }
+}
+   
+
+
+    
