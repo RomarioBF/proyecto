@@ -27,6 +27,7 @@
                     <div class="form-group">
                         <label for="id">Cedula</label>
                         <input type="text" class="form-control" name="cedula" required maxlength="10" value="{{$user->cedula}}">
+                    </div>
                         <div class="form-group">
                         <label for="password">Contraseña</label>
                         <input type="text" class="form-control" name="password" requeired maxlength="10" value="{{$user->password}}">
@@ -42,3 +43,4 @@
     </div>
 </body>
 </html>
+

@@ -32,6 +32,6 @@ Route::post('/usuario/store', [UsuarioController::class, 'store'])->name('usuari
 Route::get('/edit/{id}', [UsuarioController::class, 'edit'])->name('usuario.edit');
 Route::post('/usuario/update/{id}', [UsuarioController::class, 'update'])->name('usuario.update');
 
-Route::delete('/usuario', [UsuarioController::class, 'destroy'])->name('usuario.destroy');
+Route::delete('/usuario/{user}', [UsuarioController::class, 'destroy'])->name('usuario.destroy');
 
 

@@ -11,6 +11,7 @@ class UsuarioController extends Controller
 {
     public function index(Request $request)
     {
+        
         $texto=trim($request->get('texto'));
         $user = User::where('name','LIKE', '%'.$texto. '%')
         ->orWhere('id','LIKE','%'.$texto. '%')->get()

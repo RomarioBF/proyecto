@@ -20,7 +20,7 @@
 			<input type="submit" class="btn btn-primary" value="Buscar">
        </div>
 	   <div class="col-auto">
-  			<a href="{{route('usuario.create')}}" class="btn btn-danger btn-sm">Nuevo</a>
+  			<a href="{{route('usuario.create')}}" class="btn btn-danger ">Nuevo</a>
 			                  </div>
 			                  </div>
 			                   </div>
@@ -60,6 +60,7 @@
                      @endforeach 
            
 					</table>
+					
                                    </div>
                                   </div>
                                </div>
