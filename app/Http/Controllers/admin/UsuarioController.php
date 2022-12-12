@@ -37,7 +37,7 @@ class UsuarioController extends Controller
         $user->email=$request->input('email');
         $user->password=$request->input('password')??'11111';
         $user->save();
-        return view ('usuario.create');
+        return view ('usuario.index');
 
     }
 
