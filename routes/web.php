@@ -29,7 +29,7 @@ Route::get('/usuario', [UsuarioController::class, 'index'])->name('usuario.index
 Route::get('/usuario/create', [UsuarioController::class, 'create'])->name('usuario.create');
 Route::post('/usuario/store', [UsuarioController::class, 'store'])->name('usuario.store');
 
-Route::get('/edit/{id}', [UsuarioController::class, 'edit'])->name('usuario.edit');
+Route::get('usuario/edit/{id}', [UsuarioController::class, 'edit'])->name('usuario.edit');
 Route::post('/usuario/update/{id}', [UsuarioController::class, 'update'])->name('usuario.update');
 
 Route::delete('/usuario/{user}', [UsuarioController::class, 'destroy'])->name('usuario.destroy');

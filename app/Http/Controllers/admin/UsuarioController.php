@@ -21,13 +21,12 @@ class UsuarioController extends Controller
     }
 
 
-
     public function create()
     {
-        
-        return view('usuario.create');
+        $user= new User;
+        $route = route('usuario.store');
+        return view('usuario.modal',['user'=>$user, 'route'=>$route]);
     }
-
 
 
     public function store(Request $request)
@@ -44,8 +43,9 @@ class UsuarioController extends Controller
 
     public function edit($id)
     {
-        $user=User::findOrFail($id);
-        return view ('usuario.edit',['user'=>$user]);
+        $user = User::findOrFail($id);
+        $route = route('usuario.update',$user->id);
+        return view('usuario.modal',['user'=>$user, 'route'=>$route]);
     }
 
     public function update(Request $request, $id)
@@ -69,7 +69,3 @@ class UsuarioController extends Controller
          return redirect()->route('usuario.index');
     }
 }
-   
-
-
-    
