@@ -31,6 +31,11 @@ class UsuarioController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required | email | unique:forms',
+            'cedula' => 'required \ numeric',
+        ]);
       $user = new User;
         $user->cedula=$request->input('cedula');
         $user->name=$request->input('name');
