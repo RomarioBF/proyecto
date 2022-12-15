@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB; 
 
 class UsuarioController extends Controller
+
+
 {
     public function index(Request $request)
     {
@@ -33,8 +35,8 @@ class UsuarioController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'email' => 'required | email | unique:forms',
-            'cedula' => 'required \ numeric',
+            'email' => 'required | email | unique:users',
+            'cedula' => 'required | numeric | unique:users',
         ]);
       $user = new User;
         $user->cedula=$request->input('cedula');
